@@ -35,11 +35,13 @@ export class DriversQueryService implements DriversQuery {
             .createQueryBuilder('driver')
             .where(
                 'ST_DWithin(driver.last_location, ST_SetSRID(ST_Point(:x, :y), 4326), :distance)',
-                {x: lat, y: lon, distance: 0.027}
+                {x: lat, y: lon, distance: this.configService.get('LOCATION.DISTANCE.3KM')}
             )
             .andWhere('driver.available = :available',{available : available})
             .skip(offset)
             .take(limit)
+            .addSelect(`ST_Distance(driver.last_location, ST_SetSRID(ST_Point(:x, :y), 4326))`, 'distance')
+            .orderBy('distance', 'ASC')
             .getMany();
     }
 }

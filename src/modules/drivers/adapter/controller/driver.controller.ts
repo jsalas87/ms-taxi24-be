@@ -3,12 +3,14 @@ import {Driver} from "../../../../domain/driver.entity";
 import {DriverDtoResponse} from "../model/driver-dtoresponse.dto.ts/driver-dto.response";
 import {DriversQuery} from "../../application/port/in/drivers.query";
 import {DriverQuery} from "../../application/port/in/driver.query";
+import {DriversQueryService} from "../../application/usecase/drivers-query.service";
+import {DriverQueryService} from "../../application/usecase/driver-query.service";
 
 @Controller('conductores')
 export class DriverController {
 
-    constructor(@Inject('DriversQuery') private readonly driversService : DriversQuery,
-                @Inject('DriverQuery') private readonly driverService : DriverQuery) {}
+    constructor(@Inject('DriversQuery') private readonly driversService : DriversQueryService,
+                @Inject('DriverQuery') private readonly driverService : DriverQueryService) {}
 
     @Get('/consultar')
     async getDrivers(@Query() filter : any): Promise<DriverDtoResponse[]> {
@@ -33,8 +35,9 @@ export class DriverController {
     }
 
    @Get('/consultar/:id')
-   getDriver(@Param('id') id : string): Promise<Driver> {
+   async getDriver(@Param('id') id : number): Promise<DriverDtoResponse> {
         console.log(`El ids es ${id}`)
-        return this.driverService.execute(id);
+        const driver = await this.driverService.execute(id);
+        return DriverDtoResponse.of(driver);
     }
 }

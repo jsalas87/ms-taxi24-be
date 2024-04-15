@@ -12,6 +12,6 @@ import {DriverQueryService} from "./application/usecase/driver-query.service";
     providers : [
         {provide : 'DriversQuery', useClass : DriversQueryService},
         {provide : 'DriverQuery', useClass : DriverQueryService}
-    ],
+    ]
 })
 export class DriversModule {}

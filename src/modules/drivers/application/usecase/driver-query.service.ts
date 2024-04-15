@@ -10,8 +10,8 @@ export class DriverQueryService implements DriverQuery {
 
     constructor(@InjectRepository(Driver) private readonly driverRepository : Repository<Driver>) {}
 
-    async execute(id : string) : Promise<Driver> {
-        return await this.driverRepository.findOneBy({id : parseInt(id,0)});
+    async execute(id : number) : Promise<Driver> {
+        return await this.driverRepository.findOneBy({id : id});
     }
 
 }
