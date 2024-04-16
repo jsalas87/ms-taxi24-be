@@ -3,9 +3,6 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {Trip} from "../../../../domain/trip.entity";
 import {EntityManager, Repository} from "typeorm";
 import {ConfigService} from "@nestjs/config";
-import {TripsFinishCommand} from "../port/in/trips.finish.command";
-import {Invoice} from "../../../../domain/invoice.entity";
-import {InvoiceDetail} from "../../../../domain/invoice.detail.entity";
 import {TripsActiveQuery} from "../port/in/trips.active.query";
 
 @Injectable()

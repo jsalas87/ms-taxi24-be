@@ -22,17 +22,39 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) API para taxi con los modulos de conductores, pasajeros y viajes.
 
-## Installation
+# Estado
+En contrucción.
+
+# Tecnologías Utilizadas
+
+## Backend
+Esta basado en el principio de Clean Architecture, con una arquitectura hexagonal.
+
+![alt text](docs/clean.png)
+
+### Estructura de paquetes
+
+Se definió la siguiente taxonomía de paquetes:
+
+* **config:** Capa transversal a toda la aplicación que contendrá las distintas configuraciones y aspectos del bff.
+* **domain:** Contiene entidades del dominio. Representa el nucleo de toda la aplicación.
+* **modules/NOMBRE_MODULO/application:** Encapsula toda la lógica de negocio.
+    * **usescases:** Abstracción de los casos de uso del sistema. Contiene además la definición de los puertos y excepciones.
+* **modules/NOMBRE_MODULO/adapters:** Representa la capa de adaptadores (como su nombre indica) que se conectarán en los puertos expuestos por el sistema
+
+![alt text](docs/packages.png)
+
+## Instalación del entorno de Nest
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Ejecutar la aplicación
 
 ```bash
 # development
@@ -58,16 +80,16 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Soporte Nest
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+## Notas Adicionales
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- El archivo script.sql contiene datos básicos para hacer una ejecución elemental de la aplicación.
+- El archivo Nest.postman_collection.json es una colección de postman con los curl de los servicios expuestos.
 
-## License
+# Autor
+[<img src="https://avatars.githubusercontent.com/u/37299779?s=400&u=e40bfe01a10c844ef8348b57774ffdb872a7d15a&v=4" width=115><br><sub>Juan Salas</sub>](https://github.com/jsalas87)
 
-Nest is [MIT licensed](LICENSE).
+

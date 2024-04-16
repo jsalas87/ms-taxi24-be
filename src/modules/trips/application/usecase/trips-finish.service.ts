@@ -18,11 +18,12 @@ export class TripsFinishService implements TripsFinishCommand{
     async execute(id : number): Promise<Trip> {
         return this.entityManager.transaction(async (tem) => {
 
-            let trip =  await this.tripRepository.findOne({where: {id: id},
+            let trip : Trip =  await this.tripRepository.findOne({where: {id: id, finished : false},
             relations: ['passenger', 'driver']})
+            console.log(trip);
 
-            if (!trip) {
-                throw new NotFoundException(`No se encontró el viaje id ${trip.id}`)
+            if (trip == null) {
+                throw new NotFoundException(`No se encontró el viaje id ${id} o está completado`)
             }
 
             trip.id = id;

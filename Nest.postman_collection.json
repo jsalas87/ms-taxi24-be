@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "939a3c92-bb20-4a31-a4ca-82ca7c8d8fcc",
+		"name": "Nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5450107"
+	},
+	"item": [
+		{
+			"name": "obtener conductores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/conductores/consultar?available=true",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conductores",
+						"consultar"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "lat",
+							"value": "1000",
+							"disabled": true
+						},
+						{
+							"key": "lon",
+							"value": "1000",
+							"disabled": true
+						},
+						{
+							"key": "available",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener conductor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/conductores/consultar/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conductores",
+						"consultar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener conductores en 3km",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/conductores/ubicacion/lat/28.5335984/lon/-81.4365289?limit=10&offset=0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"conductores",
+						"ubicacion",
+						"lat",
+						"28.5335984",
+						"lon",
+						"-81.4365289"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Viaje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_pasajero\" : 1,\r\n    \"id_conductor\" : 1,\r\n    \"origen\" : [28.5335974, -81.4365310],\r\n    \"destino\" : [28.5336974, -81.4365410]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/viajes/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viajes",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completar Viaje",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_pasajero\" : 1,\r\n    \"id_conductor\" : 1,\r\n    \"origen\" : [1,1],\r\n    \"destino\" : [2,2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/viajes/completar/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viajes",
+						"completar",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener viajes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/viajes/consultar?passenger_id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viajes",
+						"consultar"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "passenger_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener pasajeros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pasajeros/consultar?limit=2&offset=0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pasajeros",
+						"consultar"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener pasajero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pasajeros/consultar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pasajeros",
+						"consultar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener conductores mas cercanos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pasajeros/ubicacion/lat/28.5335984/lon/-81.4365289",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pasajeros",
+						"ubicacion",
+						"lat",
+						"28.5335984",
+						"lon",
+						"-81.4365289"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,5 +1,5 @@
-import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
+import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 
 import {TripsCreateCommand} from "../port/in/trips.create.command";
 import {Trip} from "../../../../domain/trip.entity";

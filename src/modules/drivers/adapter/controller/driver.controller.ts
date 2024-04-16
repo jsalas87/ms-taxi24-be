@@ -1,8 +1,6 @@
 import {Controller, Get, Inject, InjectionToken, Param, Query} from '@nestjs/common';
 import {Driver} from "../../../../domain/driver.entity";
 import {DriverDtoResponse} from "../model/driver-dtoresponse.dto.ts/driver-dto.response";
-import {DriversQuery} from "../../application/port/in/drivers.query";
-import {DriverQuery} from "../../application/port/in/driver.query";
 import {DriversQueryService} from "../../application/usecase/drivers-query.service";
 import {DriverQueryService} from "../../application/usecase/driver-query.service";
 
