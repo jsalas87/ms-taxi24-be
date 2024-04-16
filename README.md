@@ -48,6 +48,10 @@ Se definió la siguiente taxonomía de paquetes:
 
 ![alt text](docs/packages.png)
 
+## Base de datos
+- Se usa postgreSQL 15.
+- Se debe instalar y activar el complemento postgis 3.4 para el manejo de coordinadas geográficas.
+
 ## Instalación del entorno de Nest
 
 ```bash
